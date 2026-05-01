@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-04-11T13:24:11.773Z",
+    "end": "2026-04-11T13:24:12.005Z",
+    "duration": 232,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "44452dfe-dc39-4cec-b5fa-7241989ccaa2",
+      "title": "",
+      "fullFile": "cypress\\e2e\\medai_registration.cy.js",
+      "file": "cypress\\e2e\\medai_registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "606f4014-2380-42ae-a949-9434974dc41c",
+          "title": "MedAi Registration Form Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01: Submit Valid Personal Information",
+              "fullTitle": "MedAi Registration Form Tests TC01: Submit Valid Personal Information",
+              "timedOut": null,
+              "duration": 172,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Personal Info Section\n// Using eq(0) because 'name' and 'phone' might be duplicated in the Contact section\ncy.get('#name').eq(0).should('be.visible').type('John Doe');\ncy.get('#gender').select('Male');\ncy.get('#phone').eq(0).type('01012345678');\ncy.get('#dob').type('1990-01-01');\ncy.get('#email').type('john.doe@example.com');\ncy.get('#address').type('123 Main St, Cairo, Egypt');\n// There were no IDs on buttons found, so we target by text or type\n// Assuming \"Next\" or \"Submit\" logic. \n// If it's a multi-step form, we might need to click Next.\n// Based on inspection, we look for buttons. \n// We'll try to find a button that looks like a submit for this form.\n// Since we don't have the button ID, we try finding by content.\ncy.get('button').contains('Next').click({\n  force: true\n});\n// Assertion: Check if we moved to next step or stayed on page (depending on logic).\n// For now, we verify the inputs hold values.\ncy.get('#name').eq(0).should('have.value', 'John Doe');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://127.0.0.1:3000/Home/index/home.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `MedAi Registration Form Tests`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://127.0.0.1:3000/Home/index/home.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `MedAi Registration Form Tests`\n    at <unknown> (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131591:76)\n    at visitFailedByErr (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131006:12)\n    at <unknown> (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131574:13)\n    at tryCatcher (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://tests/./cypress/e2e/medai_registration.cy.js:4:11)",
+                "diff": null
+              },
+              "uuid": "33988bd6-aa57-4711-9cfe-5211f34619c6",
+              "parentUUID": "606f4014-2380-42ae-a949-9434974dc41c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02: Validation - Empty Name",
+              "fullTitle": "MedAi Registration Form Tests TC02: Validation - Empty Name",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#phone').eq(0).type('01012345678');\ncy.get('button').contains('Next').click({\n  force: true\n});\n// Assuming HTML5 validation or JS alert. \n// If HTML5 validtion, CSS pseudo class :invalid might be active.\ncy.get('#name').eq(0).then($input => {\n  expect($input[0].validationMessage).to.not.be.empty;\n});",
+              "err": {},
+              "uuid": "4aeb4c2d-b54f-4000-85bf-5abb3bc31caf",
+              "parentUUID": "606f4014-2380-42ae-a949-9434974dc41c",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "33988bd6-aa57-4711-9cfe-5211f34619c6"
+          ],
+          "pending": [],
+          "skipped": [
+            "4aeb4c2d-b54f-4000-85bf-5abb3bc31caf"
+          ],
+          "duration": 172,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

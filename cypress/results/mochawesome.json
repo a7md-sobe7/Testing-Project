@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-04-11T13:24:09.921Z",
+    "end": "2026-04-11T13:24:10.311Z",
+    "duration": 390,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1b215ac8-2fd2-4581-9e9f-76839563c828",
+      "title": "",
+      "fullFile": "cypress\\e2e\\medai_contact.cy.js",
+      "file": "cypress\\e2e\\medai_contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "76306705-31c4-4b0b-9c94-f55ab20f8086",
+          "title": "MedAi Contact Us Form Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC03: Submit Contact Inquiry",
+              "fullTitle": "MedAi Contact Us Form Tests TC03: Submit Contact Inquiry",
+              "timedOut": null,
+              "duration": 335,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Contact Section\n// Note: The inspection showed IDs: name, Phone, mail, massege (typo in original app?)\n// We use eq(1) for name if it's the second occurrence.\ncy.get('#name').eq(1).scrollIntoView().type('Jane Smith');\ncy.get('#Phone').type('01234567890'); // Note: ID was 'Phone' (capital P) in inspection? Or 'phone'? \n// Inspection said '#Phone' for one and '#phone' for another? \n// Let's re-read inspection:\n// INPUT name\n// SELECT gender\n// INPUT phone\n// ...\n// INPUT name (Duplicate)\n// INPUT Phone\n// INPUT mail\n// TEXTAREA massege\ncy.get('#mail').type('jane@example.com');\ncy.get('#massege').type('I have an inquiry about scheduling.'); // ID from inspection\ncy.get('button').contains('Submit').click({\n  force: true\n});\n// As we don't know the success state (alert? redirect?), we assume it shouldn't clear immediately or should show alert.\n// We'll just verify the button is clickable.",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://127.0.0.1:3000/Home/index/home.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `MedAi Contact Us Form Tests`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttp://127.0.0.1:3000/Home/index/home.html\n\nThe response we received from your web server was:\n\n  > 404: Not Found\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `MedAi Contact Us Form Tests`\n    at <unknown> (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131591:76)\n    at visitFailedByErr (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131006:12)\n    at <unknown> (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:131574:13)\n    at tryCatcher (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:1720:18)\n    at _drainQueueStep (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (http://127.0.0.1:3000/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://tests/./cypress/e2e/medai_contact.cy.js:3:11)",
+                "diff": null
+              },
+              "uuid": "3e861abf-a21f-45c2-8acf-9f73ecaa65f0",
+              "parentUUID": "76306705-31c4-4b0b-9c94-f55ab20f8086",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3e861abf-a21f-45c2-8acf-9f73ecaa65f0"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 335,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

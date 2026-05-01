@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-04-11T13:25:07.903Z",
+    "end": "2026-04-11T13:25:12.298Z",
+    "duration": 4395,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "cf678bd0-d661-461a-89bd-48926c3573dd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\medai_contact.cy.js",
+      "file": "cypress\\e2e\\medai_contact.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ea5ab930-010d-41c6-9dfb-a205f7344b65",
+          "title": "MedAi Contact Us Form Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC03: Submit Contact Inquiry",
+              "fullTitle": "MedAi Contact Us Form Tests TC03: Submit Contact Inquiry",
+              "timedOut": null,
+              "duration": 4348,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Contact Section\n// Note: The inspection showed IDs: name, Phone, mail, massege (typo in original app?)\n// We use eq(1) for name if it's the second occurrence.\ncy.get('#name').eq(1).scrollIntoView().type('Jane Smith');\ncy.get('#Phone').type('01234567890'); // Note: ID was 'Phone' (capital P) in inspection? Or 'phone'? \n// Inspection said '#Phone' for one and '#phone' for another? \n// Let's re-read inspection:\n// INPUT name\n// SELECT gender\n// INPUT phone\n// ...\n// INPUT name (Duplicate)\n// INPUT Phone\n// INPUT mail\n// TEXTAREA massege\ncy.get('#mail').type('jane@example.com');\ncy.get('#massege').type('I have an inquiry about scheduling.'); // ID from inspection\ncy.get('button').contains('Submit').click({\n  force: true\n});\n// As we don't know the success state (alert? redirect?), we assume it shouldn't clear immediately or should show alert.\n// We'll just verify the button is clickable.",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#name`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#name`, but never found it.\n    at Context.eval (webpack://tests/./cypress/e2e/medai_contact.cy.js:11:11)",
+                "diff": null
+              },
+              "uuid": "6b68401d-940f-4367-aebb-49f13d6bbc6c",
+              "parentUUID": "ea5ab930-010d-41c6-9dfb-a205f7344b65",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "6b68401d-940f-4367-aebb-49f13d6bbc6c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4348,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
